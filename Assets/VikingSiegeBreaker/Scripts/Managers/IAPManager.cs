@@ -155,6 +155,45 @@ namespace VikingSiegeBreaker.Managers
             SimulatePurchase(productId);
         }
 
+        /// <summary>
+        /// Generic purchase method that routes to the appropriate specific purchase method.
+        /// Used by UI popups that need to purchase by product ID string.
+        /// </summary>
+        public void PurchaseProduct(string productId)
+        {
+            if (string.IsNullOrEmpty(productId))
+            {
+                Debug.LogWarning("[IAPManager] Cannot purchase - product ID is null or empty");
+                return;
+            }
+
+            // Route to appropriate purchase method based on product ID
+            if (productId.Contains("removeads") || productId == "remove_ads")
+            {
+                PurchaseRemoveAds();
+            }
+            else if (productId.Contains("starterpack") || productId == "starter_pack")
+            {
+                PurchaseStarterPack();
+            }
+            else if (productId.Contains("gems100") || productId == "coin_pack_small")
+            {
+                PurchaseGemPack(100);
+            }
+            else if (productId.Contains("gems500") || productId == "coin_pack_medium")
+            {
+                PurchaseGemPack(500);
+            }
+            else if (productId.Contains("gems1000") || productId == "coin_pack_large")
+            {
+                PurchaseGemPack(1000);
+            }
+            else
+            {
+                Debug.LogWarning($"[IAPManager] Unknown product ID: {productId}");
+            }
+        }
+
         // UNITY IAP: Uncomment this method
         /*
         private void BuyProductID(string productId)
