@@ -86,7 +86,35 @@ VikingSiegeBreaker/
 
 ---
 
-## 🚀 Quick Start
+## ⚡ Quick Start (60 Seconds!)
+
+### 🚀 Automated Scene Builder (NEW!)
+
+Get your project ready in 3 steps:
+
+1. **Open Unity Project** (Unity 6.2+)
+2. **Build Scenes**: `Tools → Viking Siege Breaker → Quick Build → Build All Scenes` (Ctrl+Alt+B)
+3. **Create Data**: `Tools → Quick Build → Create ScriptableObjects`
+4. **Play**: `Tools → Quick Build → Play from MainMenu` (Ctrl+Alt+P)
+
+**Done!** 🎉 Your project is ready for testing!
+
+📚 **See:** `QUICK_START.md` for detailed instructions
+📚 **See:** `SCENE_BUILDER_GUIDE.md` for complete documentation
+
+### Command-Line Automation
+
+```bash
+# Python (cross-platform)
+python scene-builder.py --setup
+
+# Or Bash (Linux/Mac)
+./build-automation.sh setup
+```
+
+---
+
+## 🛠️ Manual Setup (Traditional Method)
 
 ### Prerequisites
 - Unity 6.2 or newer
@@ -108,7 +136,10 @@ VikingSiegeBreaker/
      - TextMeshPro (3.2.0+)
      - Unity IAP (4.10.0+)
 
-3. **Follow Setup Guide**:
+3. **Use Scene Builder** (Recommended):
+   - See Quick Start above
+
+   **OR Follow Manual Setup Guide**:
    - Read `UNITY_SETUP_GUIDE.md` for complete step-by-step instructions
    - Configure scenes, prefabs, ScriptableObjects
    - Set up Input Actions
@@ -310,8 +341,10 @@ UpgradeManager.Instance.CheatMaxAllUpgrades();
 | File | Description |
 |------|-------------|
 | `README.md` | **This file** - Overview and quick reference |
+| `QUICK_START.md` | **⚡ 60-second setup guide** (START HERE!) |
+| `SCENE_BUILDER_GUIDE.md` | **🏗️ Automated scene builder** - Complete documentation |
 | `PROJECT_STRUCTURE.md` | Detailed folder organization and file purposes |
-| `UNITY_SETUP_GUIDE.md` | **Step-by-step Unity setup** (READ THIS FIRST) |
+| `UNITY_SETUP_GUIDE.md` | Manual Unity setup instructions (if not using builder) |
 | `UPGRADE_FORMULAS_AND_TEST_DATA.md` | **Progression math**, upgrade balancing, test data |
 
 ---
