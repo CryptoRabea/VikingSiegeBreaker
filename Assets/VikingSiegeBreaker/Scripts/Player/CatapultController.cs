@@ -108,11 +108,11 @@ namespace VikingSiegeBreaker.Player
             // Fallback mouse/touch input
             if (launchAction == null)
             {
-                if (Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))
+                if (Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == UnityEngine.TouchPhase.Began))
                 {
                     StartCharging();
                 }
-                else if (Input.GetMouseButtonUp(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended))
+                else if (Input.GetMouseButtonUp(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == UnityEngine.TouchPhase.Ended))
                 {
                     ReleaseLaunch();
                 }

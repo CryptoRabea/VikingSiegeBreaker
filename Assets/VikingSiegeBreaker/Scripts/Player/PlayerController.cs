@@ -133,7 +133,7 @@ namespace VikingSiegeBreaker.Player
         /// </summary>
         private void CheckTouchInput()
         {
-            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+            if (Input.touchCount > 0 && Input.GetTouch(0).phase == UnityEngine.TouchPhase.Began)
             {
                 UseDash();
             }

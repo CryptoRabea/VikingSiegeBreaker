@@ -184,8 +184,7 @@ namespace VikingSiegeBreaker.Managers
                 evolutionPopup.SetActive(true);
 
                 // Update evolution popup content (requires EvolutionPopup script)
-                var popup = evolutionPopup.GetComponent<UI.EvolutionPopup>();
-                if (popup != null)
+                if (evolutionPopup.TryGetComponent<UI.EvolutionPopup>(out var popup))
                 {
                     popup.Show(evolution);
                 }
