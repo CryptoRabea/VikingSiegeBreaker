@@ -43,7 +43,7 @@ namespace VikingSiegeBreaker.UI
             // Update UI elements
             if (evolutionNameText != null)
             {
-                evolutionNameText.text = evolution.evolutionName;
+                evolutionNameText.text = evolution.displayName;
             }
 
             if (evolutionDescriptionText != null)
@@ -90,7 +90,7 @@ namespace VikingSiegeBreaker.UI
             Hide();
 
             // Notify that evolution was confirmed
-            Debug.Log($"Evolution confirmed: {currentEvolution?.evolutionName}");
+            Debug.Log($"Evolution confirmed: {currentEvolution?.displayName}");
         }
 
         private void OnDestroy()
