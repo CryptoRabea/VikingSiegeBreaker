@@ -232,6 +232,12 @@ namespace VikingSiegeBreaker.Managers
 
         private AudioSource GetAvailableSFXSource()
         {
+            if (sfxPool.Count == 0)
+            {
+                Debug.LogWarning("[AudioManager] SFX pool is empty");
+                return null;
+            }
+
             // Find an available source
             foreach (var source in sfxPool)
             {

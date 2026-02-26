@@ -112,7 +112,17 @@ namespace VikingSiegeBreaker.UI
         public void FilterCategory(string category)
         {
             currentCategory = category;
-            // TODO: Implement filtering logic
+
+            foreach (var item in upgradeItems)
+            {
+                if (item == null) continue;
+
+                bool visible = currentCategory == "All" ||
+                               string.IsNullOrEmpty(currentCategory) ||
+                               item.Category.Equals(currentCategory, System.StringComparison.OrdinalIgnoreCase);
+
+                item.gameObject.SetActive(visible);
+            }
         }
 
         private void OnDestroy()
@@ -138,6 +148,8 @@ namespace VikingSiegeBreaker.UI
         [SerializeField] private Image icon;
 
         private Data.UpgradeData upgradeData;
+
+        public string Category => upgradeData != null ? upgradeData.category : string.Empty;
 
         public void Initialize(Data.UpgradeData data)
         {
