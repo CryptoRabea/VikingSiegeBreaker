@@ -86,7 +86,10 @@ namespace VikingSiegeBreaker.Systems
             // Initialize pools
             InitializeObjectPools();
 
-            lastSpawnX = playerTransform.position.x;
+            if (playerTransform != null)
+            {
+                lastSpawnX = playerTransform.position.x;
+            }
         }
 
         private void Update()

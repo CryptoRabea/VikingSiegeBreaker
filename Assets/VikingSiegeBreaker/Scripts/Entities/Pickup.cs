@@ -208,13 +208,13 @@ namespace VikingSiegeBreaker.Entities
 
         private void RefreshDash(Player.PlayerController player)
         {
-            // Dash cooldown reset handled in PlayerController
+            player.ResetDashCooldown();
             Debug.Log("[Pickup] Dash cooldown refreshed");
         }
 
         private void RestoreHealth(Player.PlayerController player)
         {
-            // Health restore logic (requires public method in PlayerController)
+            player.RestoreHealth(value);
             Debug.Log($"[Pickup] Restored {value} health");
         }
 

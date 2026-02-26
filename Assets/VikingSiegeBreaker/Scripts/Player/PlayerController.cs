@@ -95,6 +95,12 @@ namespace VikingSiegeBreaker.Player
             if (Core.GameManager.Instance.CurrentState != Core.GameState.Playing)
                 return;
 
+            // Fallback touch/mouse input when Input Actions are not configured
+            if (dashAction == null)
+            {
+                CheckTouchInput();
+            }
+
             // Update animations
             UpdateAnimations();
 
@@ -191,6 +197,17 @@ namespace VikingSiegeBreaker.Player
 
             yield return new WaitForSeconds(dashCooldown);
             canDash = true;
+        }
+
+        /// <summary>
+        /// Resets the dash cooldown immediately (called by dash pickup).
+        /// </summary>
+        public void ResetDashCooldown()
+        {
+            StopCoroutine(nameof(DashCooldown));
+            isDashing = false;
+            canDash = true;
+            Debug.Log("[PlayerController] Dash cooldown reset by pickup");
         }
 
         /// <summary>
@@ -396,6 +413,17 @@ namespace VikingSiegeBreaker.Player
         }
 
         #endregion
+
+        /// <summary>
+        /// Restores the player's health (called by health pickup).
+        /// </summary>
+        public void RestoreHealth(float amount)
+        {
+            float previousHealth = currentHealth;
+            currentHealth = Mathf.Min(currentHealth + amount, maxHealth);
+            OnHealthChanged?.Invoke(NormalizedHealth);
+            Debug.Log($"[PlayerController] Health restored by {amount} ({previousHealth} -> {currentHealth}/{maxHealth})");
+        }
 
         #region Death & Revive
 
